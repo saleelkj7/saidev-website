@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #1a3a2a;
+  --gold: #c8a84b;
+  --cream: #faf6ee;
+  --warm-white: #fff9f0;
+  --charcoal: #2c2c2c;
+  --muted: #6b6b6b;
+  --border: #e8dfc8;
+  --veg-green: #2e7d32;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--warm-white);
+  color: var(--charcoal);
+  font-family: 'Georgia', serif;
+}
+
+.veg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #2e7d32;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.veg-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2e7d32;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #faf6ee; }
+::-webkit-scrollbar-thumb { background: #c8a84b55; border-radius: 3px; }
+
+@keyframes cartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.cart-pop { animation: cartPop 0.3s ease; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #e8dfc8 25%, #f5edd8 50%, #e8dfc8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: fadeIn 0.3s ease; }
+
+.status-PENDING { background: #fef3c7; color: #92400e; }
+.status-CONFIRMED { background: #dbeafe; color: #1e40af; }
+.status-PREPARING { background: #fce7f3; color: #9d174d; }
+.status-OUT_FOR_DELIVERY { background: #d1fae5; color: #065f46; }
+.status-DELIVERED { background: #dcfce7; color: #14532d; }
+.status-CANCELLED { background: #fee2e2; color: #991b1b; }
